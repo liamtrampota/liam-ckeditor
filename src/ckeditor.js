@@ -30,6 +30,8 @@ import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
@@ -59,6 +61,8 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
+
+import FullScreen from './FullScreen';
 
 class Editor extends ClassicEditor {}
 
@@ -108,6 +112,8 @@ Editor.builtinPlugins = [
 	SpecialCharactersEssentials,
 	SpecialCharactersMathematical,
 	StandardEditingMode,
+	SimpleUploadAdapter,
+	Base64UploadAdapter,
 	Subscript,
 	Superscript,
 	Table,
@@ -119,7 +125,8 @@ Editor.builtinPlugins = [
 	TextTransformation,
 	TodoList,
 	Underline,
-	WordCount
+	WordCount,
+	FullScreen,
 ];
 
 // Editor configuration.
@@ -166,7 +173,8 @@ Editor.defaultConfig = {
 			'superscript',
 			'restrictedEditingException',
 			'exportPdf',
-			'exportWord'
+			'exportWord',
+			'fullScreen'
 		],
 		shouldNotGroupWhenFull: true
 	},
